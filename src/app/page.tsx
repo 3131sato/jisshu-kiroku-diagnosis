@@ -10,10 +10,10 @@ export default function Home() {
         <h1 className="mt-4 text-2xl font-bold leading-snug text-zinc-800 sm:text-3xl">
           実習記録が終わらない理由がわかる
           <br />
-          <span className="text-rose-500">5タイプ診断シート</span>
+          <span className="text-rose-500">5タイプ診断</span>
         </h1>
         <p className="mt-5 leading-7 text-zinc-600">
-          全10問の質問に答えるだけで、あなたが記録で止まる理由と、今日から見るべきポイントがわかります。
+          全5問の質問に答えるだけで、あなたが記録で止まる理由と、今日から見るべきポイントがわかります。
           <br />
           回答に応じて質問が変わるので、自分に合った診断結果が出てきます。
         </p>

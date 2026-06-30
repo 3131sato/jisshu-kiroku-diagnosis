@@ -20,7 +20,6 @@ export default function DiagnosisPage() {
   const [nodeId, setNodeId] = useState<string>(ROOT_NODE_ID);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [resultType, setResultType] = useState<TypeId | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -52,12 +51,7 @@ export default function DiagnosisPage() {
   if (!node) return null;
 
   const handleSelect = (index: number) => {
-    setSelectedIndex(index);
-  };
-
-  const handleNext = () => {
-    if (selectedIndex === null) return;
-    const choice = node.choices[selectedIndex];
+    const choice = node.choices[index];
     const nextType = choice.resultType ?? resultType;
 
     if (choice.next === null) {
@@ -69,19 +63,13 @@ export default function DiagnosisPage() {
     setNodeId(choice.next);
     setResultType(nextType);
     setQuestionNumber((n) => Math.min(n + 1, TOTAL_QUESTIONS));
-    setSelectedIndex(null);
   };
 
   return (
     <div className="flex flex-1 items-center justify-center px-4 py-12">
       <div className="w-full max-w-xl">
         <ProgressIndicator current={questionNumber} total={TOTAL_QUESTIONS} />
-        <QuestionCard
-          node={node}
-          selectedIndex={selectedIndex}
-          onSelect={handleSelect}
-          onNext={handleNext}
-        />
+        <QuestionCard node={node} onSelect={handleSelect} />
       </div>
     </div>
   );

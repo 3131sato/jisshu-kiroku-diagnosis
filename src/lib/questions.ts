@@ -350,12 +350,15 @@ const recordOverloadItems: DeepItem[] = [
   },
 ];
 
+// 全5問構成: 振り分け3問(q1〜q3) + 各タイプの深掘り2問
+const DEEP_QUESTIONS_PER_TYPE = 2;
+
 const deepNodes: QuestionNode[] = [
-  ...buildDeepNodes("info-lost", infoLostItems),
-  ...buildDeepNodes("soap-a-stop", soapAStopItems),
-  ...buildDeepNodes("problem-mess", problemMessItems),
-  ...buildDeepNodes("report-freeze", reportFreezeItems),
-  ...buildDeepNodes("record-overload", recordOverloadItems),
+  ...buildDeepNodes("info-lost", infoLostItems.slice(0, DEEP_QUESTIONS_PER_TYPE)),
+  ...buildDeepNodes("soap-a-stop", soapAStopItems.slice(0, DEEP_QUESTIONS_PER_TYPE)),
+  ...buildDeepNodes("problem-mess", problemMessItems.slice(0, DEEP_QUESTIONS_PER_TYPE)),
+  ...buildDeepNodes("report-freeze", reportFreezeItems.slice(0, DEEP_QUESTIONS_PER_TYPE)),
+  ...buildDeepNodes("record-overload", recordOverloadItems.slice(0, DEEP_QUESTIONS_PER_TYPE)),
 ];
 
 export const allNodes: QuestionNode[] = [...rootNodes, ...deepNodes];
@@ -365,4 +368,4 @@ export const nodeMap: Map<string, QuestionNode> = new Map(
 );
 
 export const ROOT_NODE_ID = "q1";
-export const TOTAL_QUESTIONS = 10;
+export const TOTAL_QUESTIONS = 5;
