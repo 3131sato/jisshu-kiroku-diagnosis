@@ -1,4 +1,4 @@
-const TERAKOYA_URL = "https://terakoya-nine.vercel.app/";
+const TERAKOYA_URL = "https://terakoya-nine.vercel.app/discord.html";
 
 export default function CTASection() {
   return (
